@@ -1,3 +1,4 @@
+import pandas as pd
 class chatbook:
     def __init__(self):
         self.user_name= ''
@@ -24,4 +25,64 @@ class chatbook:
             print('Exiting the app...')
             exit()
 
-obj= chatbook()
+    def sign_up(self):
+        email = input('Enter your email: ')
+        password = input('Set up your password here: ')
+        self.user_name = email.split('@')[0]
+        self.password = password
+
+        new_user = pd.DataFrame({'email': [email], 'password': [password]})
+        try:
+            users = pd.read_csv('users.csv')
+            users = pd.concat([users, new_user], ignore_index=True)
+        except FileNotFoundError:
+            users = new_user
+        users.to_csv('users.csv', index=False)
+
+        print(f'Account created successfully! Your username is {self.user_name}')
+        print ("\n")
+        self.menu()
+
+    def sign_in(self):
+        email = input('Enter your email: ')
+        password = input('Enter your password: ')
+        try:
+            users = pd.read_csv('users.csv')
+            # Check if credentials match
+            match = users[(users['email'] == email) & (users['password'] == password)]
+            if not match.empty:
+                self.user_name = email.split('@')[0]
+                self.loggedin = True
+                print(f'Welcome back {self.user_name}!')
+            else:
+                print('Invalid credentials, please try again.')
+        except FileNotFoundError:
+            print('User database not found. Please sign up first.')
+        
+        print("\n")
+        self.menu()
+
+    def write_post(self):
+        if self.loggedin:
+            post = input('Write your post here: ')
+            print(f'Post created successfully! Your post: {post}')
+            print ("\n")
+            self.menu()
+        else:
+            print('You need to sign in first.')
+            print ("\n")
+            self.menu()
+    
+    def message_friend(self):
+        if self.loggedin:
+            friend = input('Enter your friend\'s username: ')
+            message = input('Enter your message: ')
+            print(f'Message sent to {friend}: {message}')
+            print ("\n")
+            self.menu()
+        else:
+            print('You need to sign in first.')
+            print ("\n")
+            self.menu() 
+
+object = chatbook() 
