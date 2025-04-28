@@ -12,7 +12,7 @@ class chatbook:
                            2. Press 2 to Sign in
                            3. Press 3 to write a post
                            4. Press 4 to message a friend 
-                           5. Press any other key to exit the app''')
+                           5. Press any other key to exit the app --> ''')
         if user_input == '1':
             self.sign_up()
         elif user_input == '2':
@@ -28,24 +28,38 @@ class chatbook:
     def sign_up(self):
         email = input('Enter your email: ')
         password = input('Set up your password here: ')
+        full_name = input('Enter your full name: ')
+        dob = input('Enter your date of birth (YYYY-MM-DD): ')
+        bio = input('Write a short bio about yourself: ')
+
         self.user_name = email.split('@')[0]
         self.password = password
 
-        new_user = pd.DataFrame({'email': [email], 'password': [password]})
+         # Create new user data
+        new_user = pd.DataFrame({
+            'email': [email],
+            'password': [password],
+            'full_name': [full_name],
+            'dob': [dob],
+            'bio': [bio]
+        })
+        
         try:
             users = pd.read_csv('users.csv')
             users = pd.concat([users, new_user], ignore_index=True)
         except FileNotFoundError:
             users = new_user
-        users.to_csv('users.csv', index=False)
 
-        print(f'Account created successfully! Your username is {self.user_name}')
-        print ("\n")
+        users.to_csv('users.csv', index=False)
+        
+        print(f'\nAccount created successfully! Your username is {self.user_name}')
+        print("Welcome to Chatbook, {0}!\n".format(full_name))
         self.menu()
 
     def sign_in(self):
         email = input('Enter your email: ')
         password = input('Enter your password: ')
+    
         try:
             users = pd.read_csv('users.csv')
             # Check if credentials match
