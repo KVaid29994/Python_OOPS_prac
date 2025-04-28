@@ -35,3 +35,8 @@ Python enables developers to write cleaner,more efficient programs that are easi
  -->Polymorphism 🎭 Same method can perform different tasks depending on the object — making code flexible and dynamic.
  -->Easier Troubleshooting 🛠️Bugs are easier to track and fix since functionality is divided into small, logical pieces.
  -->Real-world Modeling 🌎 Helps you model real-world entities naturally, making the design intuitive.
+
+- What is encapsulation?
+
+Encapsulation in Python is one of the fundamental principles of Object-Oriented Programming (OOP). It refers to the bundling of data (attributes) and methods (functions) that operate on the data into a single unit, typically a class. Encapsulation also involves 
+restricting direct access to some of the object's components to protect the integrity of the data

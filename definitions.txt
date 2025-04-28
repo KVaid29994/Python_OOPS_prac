@@ -4,4 +4,49 @@ A special method (also called a magic method or dunder method because it has dou
 The constructor __init__() is a special method that runs automatically when a new object is created from a class.
 It is used to initialize (set up) the object's attributes with default or provided values.
 
--
+- 1. Function
+A function is a block of code that performs a specific task and is defined using the def keyword.
+
+It can be called independently, without needing to be part of any class.
+
+Functions can take parameters and return values.
+
+2. Method
+A method is a function that is defined within a class and is bound to an object of that class.
+
+It requires an instance of the class (or the class itself for class methods) to be called.
+
+Methods often take the instance (self) or class (cls) as their first argument, allowing them to access and modify object-level or class-level data.
+
+2- When to Use Each?
+Functions: Use them when you need reusable blocks of code that don’t rely on an object or class. For example, a utility function to calculate a sum or convert units.
+
+Methods: Use methods when you're working with object-oriented programming (OOP). Methods allow you to modify or interact with object properties and behavior, keeping related functionality inside classes.
+
+
+In Python, the terms "special methods" and "dunder methods" refer to the same concept. 
+They are methods that have special significance within the Python language and are automatically
+invoked by Python in certain circumstances. The word "dunder" is short for "double underscore," because these methods 
+are named with double  underscores at the beginning and end of their names (e.g., __init__, __str__).
+
+These methods enable customization of built-in operations, like creating objects, defining string representations, supporting arithmetic operators, and more.
+
+1. __init__ (Constructor)
+Called when an object is instantiated (created) from a class.
+
+This is where you initialize the object's state.
+
+2.__str__ (String Representation)
+Called by print() or str() to get a human-readable string representation of the object.
+
+This allows customization of how the object appears when printed.
+
+3. __add__ (Addition Operator)
+Called when the + operator is used with objects of a class.
+
+You can define how objects should behave when added together.
+
+4.  __eq__ (Equality Operator)
+Called when the == operator is used to compare objects.
+
+You can define custom equality logic.
