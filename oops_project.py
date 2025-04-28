@@ -1,4 +1,7 @@
 import pandas as pd
+import datetime
+from datetime import datetime
+
 class chatbook:
     def __init__(self):
         self.user_name= ''
@@ -87,16 +90,56 @@ class chatbook:
             print ("\n")
             self.menu()
     
+    # Check if friend exists
     def message_friend(self):
         if self.loggedin:
             friend = input('Enter your friend\'s username: ')
             message = input('Enter your message: ')
-            print(f'Message sent to {friend}: {message}')
-            print ("\n")
-            self.menu()
+            try:
+                users = pd.read_csv('users.csv')
+                usernames = users['email'].apply(lambda x: x.split('@')[0])
+                if friend in usernames.values:
+                    # Save the message to messages.csv
+                    new_message = pd.DataFrame({
+                        'sender': [self.user_name],
+                        'receiver': [friend],
+                        'message': [message],
+                        'timestamp': [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]
+                    })
+
+                    try:
+                        messages = pd.read_csv('messages.csv')
+                        messages = pd.concat([messages, new_message], ignore_index=True)
+                    except FileNotFoundError:
+                        messages = new_message
+
+                    messages.to_csv('messages.csv', index=False)
+                    
+                    print(f'Message sent to {friend}: {message}')
+                else:
+                    print(f"User {friend} not found. Please check the username.")
+            except FileNotFoundError:
+                print('User database not found. Please sign up first.')
         else:
             print('You need to sign in first.')
-            print ("\n")
-            self.menu() 
+        print("\n")
+        self.menu()
+    def view_message_feed(self):
+        if self.loggedin:
+            try:
+                messages = pd.read_csv('messages.csv')
+                user_messages = messages[messages['sender'] == self.user_name]
+                if not user_messages.empty:
+                    print(f"\n--- Your Sent Messages ---\n")
+                    for idx, row in user_messages.iterrows():
+                        print(f"To {row['receiver']} at {row['timestamp']}: {row['message']}")
+                else:
+                    print("\nYou have not sent any messages yet.\n")
+            except FileNotFoundError:
+                print("\nNo messages found.\n")
+        else:
+            print('You need to sign in first.')
+        print("\n")
+        self.menu()
 
 object = chatbook() 
