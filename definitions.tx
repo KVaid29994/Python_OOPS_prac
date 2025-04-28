@@ -1,0 +1,5 @@
+🔥 Special/Magic/Dunder Method — Constructor
+A special method (also called a magic method or dunder method because it has double underscores __ before and after its name) is a predefined method in Python that automatically gets triggered when certain actions happen.
+
+The constructor __init__() is a special method that runs automatically when a new object is created from a class.
+It is used to initialize (set up) the object's attributes with default or provided values.
