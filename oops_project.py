@@ -3,12 +3,24 @@ import datetime
 from datetime import datetime
 
 class chatbook:
+    __user_id = 0
     def __init__(self):
         self.__name = "Default user"
+        self.id = chatbook.__user_id
+        chatbook.__user_id += 1
         self.user_name= ''
         self.password = ''
         self.loggedin = False
         # self.menu()
+
+    @staticmethod
+    def get_id():
+        return chatbook.__user_id
+    
+    @staticmethod
+    def set_id(value):
+        chatbook.__user_id = value
+        return chatbook.__user_id
 
 
     def get_name(self):
