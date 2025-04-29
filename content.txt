@@ -65,3 +65,13 @@ Class and Object (Example)
         Getter → To access a private attribute (_attribute or __attribute) safely.
 
         Setter → To modify a private attribute with control/validation.
+
+- Static Methods 
+    A static method is a method inside a class that doesn’t need access to self (instance) or cls (class itself).
+    It behaves like a regular function but lives inside a class for logical grouping.
+     👉 Defined using @staticmethod decorator.
+
+     When to Use Static Methods?
+When the method relates to the class logically, but does not need instance or class data.
+
+Example: utility/helper functions.

@@ -10,6 +10,17 @@ class chatbook:
         self.loggedin = False
         # self.menu()
 
+
+    def get_name(self):
+        return self.__name
+    
+    def set_name(self, name):
+        if isinstance(name, str):
+            self.__name = name
+        else:
+            raise ValueError("Name must be a string.")
+            self.__name = name  
+
     def menu(self):
         user_input = input(''' Welcome to chatbook! how would you like to proceed?
                            1. Press 1 to Sign Up

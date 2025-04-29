@@ -1,11 +1,9 @@
-# from oops_project import chatbook
+##getter and setter
 
-# user_1 = chatbook()
+from oops_project import chatbook
 
-# print (user_1._chatbook__name)
-
-# from encapsulation import BankAccount
-
-# user_1 = BankAccount("Alice", 1000)
-# print (user_1.owner)
-# print (user_1._BankAccount__balance)
+user1 = chatbook()
+# user1.get_name
+# user1.set_name("John Doe")
+# print(user1.get_name())  # Output: John Doe
+# user1.set_name(123)  # Raises ValueError: Name must be a string.
