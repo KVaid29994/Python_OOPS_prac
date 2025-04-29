@@ -1,23 +1,33 @@
-class Animal():
+class Animal:
     def __init__(self, name):
-        # Constructor: sets the 'name' attribute when an object is created
-        self.name = name
+        # Constructor: sets the 'name' attribute when an Animal object is created
+        self.name = "Buddy"
 
     def speak(self):
         # Instance method: prints a generic animal sound
-        print (f"{self.name} makes a sound.")
+        print(f"{self.name} makes a sound.")
 
 
-# Dog inherits from Animal
+# 🐶 Dog inherits from Animal
 class Dog(Animal):
-    # Define the child class Dog that inherits from Animal
+
+    def __init__(self, breed):
+        # Child class constructor: sets its own attribute and parent's attribute
+        super().__init__()  # ✅ Calls parent Animal class constructor to set 'name'
+        self.breed = breed  # Child's own attribute
+
     def speak(self):
-        # Overridden method: specific behavior for dogs
-        print (f"{self.name} barks.")
+        # Overridden method: customized behavior for Dog
+        print(f"{self.name} barks. He is a {self.breed}.")
 
 
-# animal = Animal("panda")
-# animal.speak()  # Output: panda makes a sound.
-dog = Dog("Cat")
-dog.speak()  # Output: Cat barks.
-          
+# 🧪 Usage
+
+# Create an Animal object
+animal = Animal("Panda")
+animal.speak()  
+# Output: Panda makes a sound.
+
+# Create a Dog object
+dog = Dog("Golden Retriever")
+dog.speak()  

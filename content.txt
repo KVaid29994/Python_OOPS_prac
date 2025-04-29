@@ -131,3 +131,21 @@ Child classes can override or extend parent behavior as needed.
 
 🧱 4. Foundation for Polymorphism
 Enables polymorphism: You can treat different classes as the same type.
+
+🕵️ 5. Avoid Duplication (DRY Principle)
+"Don't Repeat Yourself" — avoids multiple copies of the same logic across classes.
+
+
+## What is constructor overloading?
+Constructor Overloading means creating multiple constructors in a class with 
+different sets of parameters, allowing objects to be initialized in different ways.
+❌ Python Doesn’t Support Traditional Constructor Overloading
+Unlike Java/C++, Python does not support multiple __init__ methods in a class.
+
+
+### 🧠 What is Method Overloading in Python?
+
+Method Overloading means defining multiple methods in the same class with the same name but different parameters (number or type).
+
+Method Overloading	Use *args, **kwargs, defaults
+Constructor Overload	Same strategy (__init__)
