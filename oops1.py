@@ -15,9 +15,15 @@ class employee:
     
 # creating an object/instance of the class employee
 sam =  employee()
+# kash =  employee()
+
+sam.name = "Sam kumar"
+print (sam.name)
 
 # #print attributes of the object
 # print (sam.id)
 # sam.travel("New York")
-print (type(sam))
-print (id(sam))
+# print (type(sam))
+# print (id(sam))
+# print (type(kash))
+# print (id(kash))

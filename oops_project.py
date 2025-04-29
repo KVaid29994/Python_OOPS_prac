@@ -4,10 +4,11 @@ from datetime import datetime
 
 class chatbook:
     def __init__(self):
+        self.__name = "Default user"
         self.user_name= ''
         self.password = ''
         self.loggedin = False
-        self.menu()
+        # self.menu()
 
     def menu(self):
         user_input = input(''' Welcome to chatbook! how would you like to proceed?

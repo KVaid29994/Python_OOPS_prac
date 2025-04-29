@@ -1,42 +1,67 @@
 Class and Object (Example)
 
-In Python, a class serves as a blueprint for creating objects. It defines a set of attributes 
-(data) and methods (functions) that the objects instantiated from the class will possess. By combining data and behavior into a single entity, classes
-enable encapsulation and promote the development of modular, maintainable, and scalable code.
+    In Python, a class serves as a blueprint for creating objects. It defines a set of attributes 
+    (data) and methods (functions) that the objects instantiated from the class will possess. By combining data and behavior into a single entity, classes
+    enable encapsulation and promote the development of modular, maintainable, and scalable code.
 
-''' class Car:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
+    ''' class Car:
+        def __init__(self, brand, model):
+            self.brand = brand
+            self.model = model
 
-    def display_info(self):
-        print(f"This car is a {self.brand} {self.model}.")
+        def display_info(self):
+            print(f"This car is a {self.brand} {self.model}.")
 
-# Creating an object
-my_car = Car("Tesla", "Model 3")
-my_car.display_info()
-'''
+    # Creating an object
+    my_car = Car("Tesla", "Model 3")
+    my_car.display_info()
+    '''
 
 - Why is python called Object oriented programming?
 
-Python is recognized as an Object-Oriented Programming (OOP) language because it embraces the 
-fundamental principles of OOP: encapsulation, inheritance, polymorphism, and abstraction. 
-These principles allow developers to model real-world entities as objects, promoting better 
-organization, modularity, reusability, and maintainability of code. By supporting OOP, 
-Python enables developers to write cleaner,more efficient programs that are easier to extend and debug.
+    Python is recognized as an Object-Oriented Programming (OOP) language because it embraces the 
+    fundamental principles of OOP: encapsulation, inheritance, polymorphism, and abstraction. 
+    These principles allow developers to model real-world entities as objects, promoting better 
+    organization, modularity, reusability, and maintainability of code. By supporting OOP, 
+    Python enables developers to write cleaner,more efficient programs that are easier to extend and debug.
+    --> Creating attributes from outside the class
+
 
 - What are the advantages of OOPa in python?
- ---> You can create your own datatypes
- --->Modularity 🧩 Code is organized into classes and objects, making it easier to manage and maintain.
- -->Reusability 🔄 Once a class is written, it can be reused across multiple programs without rewriting.
- -->Scalability 🚀 Easier to scale large projects by organizing code logically.
- -->Data Hiding 🔒Protects sensitive data using encapsulation, allowing controlled access.
- -->Inheritance 🧬Allows new classes to reuse, extend, and modify behaviors of existing classes.
- -->Polymorphism 🎭 Same method can perform different tasks depending on the object — making code flexible and dynamic.
- -->Easier Troubleshooting 🛠️Bugs are easier to track and fix since functionality is divided into small, logical pieces.
- -->Real-world Modeling 🌎 Helps you model real-world entities naturally, making the design intuitive.
+    ---> You can create your own datatypes
+    --->Modularity 🧩 Code is organized into classes and objects, making it easier to manage and maintain.
+    -->Reusability 🔄 Once a class is written, it can be reused across multiple programs without rewriting.
+    -->Scalability 🚀 Easier to scale large projects by organizing code logically.
+    -->Data Hiding 🔒Protects sensitive data using encapsulation, allowing controlled access.
+    -->Inheritance 🧬Allows new classes to reuse, extend, and modify behaviors of existing classes.
+    -->Polymorphism 🎭 Same method can perform different tasks depending on the object — making code flexible and dynamic.
+    -->Easier Troubleshooting 🛠️Bugs are easier to track and fix since functionality is divided into small, logical pieces.
+    -->Real-world Modeling 🌎 Helps you model real-world entities naturally, making the design intuitive.
+
+
+- The word (self) in OPPs python.
+
+    #Self refers to the instance of the class that is calling the method. 
+    #It differentiates between instance variables and local variables.
+    In instance methods, self must be the first parameter. 
+    It is automatically passed when a method is called on an object.
+    # self is not a reserved keyword in Python; it’s just a naming convention. 
+    You could technically use any other name, but it's highly discouraged as it reduces code readability.
+
 
 - What is encapsulation?
 
-Encapsulation in Python is one of the fundamental principles of Object-Oriented Programming (OOP). It refers to the bundling of data (attributes) and methods (functions) that operate on the data into a single unit, typically a class. Encapsulation also involves 
-restricting direct access to some of the object's components to protect the integrity of the data
+    Encapsulation in Python is one of the fundamental principles of Object-Oriented Programming (OOP).
+    It refers to the bundling of data (attributes) and methods (functions) that operate on the data into a single unit, typically a class. Encapsulation also involves 
+    restricting direct access to some of the object's components to protect the integrity of the data.
+
+    Access Modifiers: Python uses naming conventions to indicate the access level of attributes and methods:
+        Public: Accessible from anywhere. (e.g., attribute_name)
+        Protected: Accessible within the class and its subclasses. (e.g., _attribute_name)
+        Private: Accessible only within the class. (e.g., __attribute_name)
+
+
+- getter and setter methods in python?
+        Getter → To access a private attribute (_attribute or __attribute) safely.
+
+        Setter → To modify a private attribute with control/validation.
