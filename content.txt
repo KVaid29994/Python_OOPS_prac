@@ -75,3 +75,59 @@ Class and Object (Example)
 When the method relates to the class logically, but does not need instance or class data.
 
 Example: utility/helper functions.
+
+
+- What is Inheritance in python?
+
+Inheritance is an OOP concept where a child class (subclass) automatically 
+gets all the methods and properties of a parent class (superclass)
+
+👉 It lets you reuse code instead of rewriting it.
+Term	        Meaning
+Parent class-   The class being inherited from
+Child class	-   The class that inherits from the parent
+super() -       Used inside child class to call parent methods
+
+Type        	        Example
+Single	                One child → One parent
+Multiple	            One child → Multiple parents
+Multilevel	            Child → Parent → Grandparent
+Hierarchical	        One parent → Many children
+Hybrid	                Combination of multiple types
+
+When a class inherits from a parent class, it automatically gets:
+
+Inherited	                 Meaning
+✅ Instance methods          Functions defined inside the parent class
+✅ Class methods	            @classmethod decorated methods
+✅ Static methods	        @staticmethod decorated methods
+✅ Attributes (variables)	Variables defined inside __init__ or at class level
+✅ Properties	            If @property is used, getter/setter also inherited
+
+
+⚡ What Does NOT Get Inherited Automatically?
+
+Not Inherited	                      Meaning
+❌ Constructor __init__()	        It gets inherited, but if the child defines its own __init__, it overrides it.
+❌ Private members                   (name starting with __)	Example: self.__secret → can't be accessed directly in child.
+❌ Operator Overloads                (unless manually handled)	Special methods like __add__, __str__ need explicit override if you want custom behavior.
+❌ Special restrictions	             Things marked intentionally hidden or encapsulated aren't accessible unless designed.
+
+If you redefine a method or constructor in child, it overrides the parent's version.
+
+
+✅ Why Do We Need Inheritance in Python (or OOP)?
+
+1. Code Reusability
+Inheritance lets a child class reuse code from a parent class without rewriting it.
+
+📦 2. Organized, Scalable Code
+Group related classes logically (e.g., Vehicle → Car, Bike, Truck)
+
+Easy to scale: Add or modify features in child classes without touching parent.
+
+🛠 3. Extensibility
+Child classes can override or extend parent behavior as needed.
+
+🧱 4. Foundation for Polymorphism
+Enables polymorphism: You can treat different classes as the same type.
